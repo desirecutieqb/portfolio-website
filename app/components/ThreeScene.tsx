@@ -1,6 +1,17 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+
+interface GLTFResult {
+  scene: THREE.Group;
+  scenes: THREE.Group[];
+  animations: THREE.AnimationClip[];
+  asset: {
+    version: string;
+    generator: string;
+  };
+  userData?: unknown;
+}
 
 const ThreeScene: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -12,12 +23,14 @@ const ThreeScene: React.FC = () => {
       const width = container.clientWidth;
       const height = container.clientHeight;
 
+      // Inicjalizacja sceny, kamery i renderera
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(65, width / height, 0.1, 900);
+      const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
       const renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(width, height);
       container.appendChild(renderer.domElement);
 
+      // Dodanie oświetlenia
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
       scene.add(ambientLight);
       const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -31,19 +44,19 @@ const ThreeScene: React.FC = () => {
       const loader = new GLTFLoader();
       loader.load(
         '/models/gltf/computer/scene.gltf', 
-        (gltf: any) => {
+        (gltf: GLTFResult) => {
           const loadedModel = gltf.scene;
-          loadedModel.position.set(0, -1, 0);
+          loadedModel.position.set(0, 0, 0);
           loadedModel.scale.set(1, 1, 1);
           modelGroup.add(loadedModel);
         },
         undefined,
-        (error: any) => {
+        (error: ErrorEvent) => {
           console.error('Wystąpił błąd podczas ładowania modelu:', error);
         }
       );
 
-      camera.position.z = 8;
+      camera.position.z = 15;
 
       const animate = () => {
         requestAnimationFrame(animate);
@@ -51,6 +64,7 @@ const ThreeScene: React.FC = () => {
         if (modelGroupRef.current) {
           modelGroupRef.current.rotation.y += 0.01;
         }
+
         renderer.render(scene, camera);
       };
 
