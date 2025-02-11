@@ -23,14 +23,12 @@ const ThreeScene: React.FC = () => {
       const width = container.clientWidth;
       const height = container.clientHeight;
 
-      // Inicjalizacja sceny, kamery i renderera
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
       const renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(width, height);
       container.appendChild(renderer.domElement);
 
-      // Dodanie oświetlenia
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
       scene.add(ambientLight);
       const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -56,7 +54,7 @@ const ThreeScene: React.FC = () => {
         }
       );
 
-      camera.position.z = 15;
+      camera.position.z = 9;
 
       const animate = () => {
         requestAnimationFrame(animate);

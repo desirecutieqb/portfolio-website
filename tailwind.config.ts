@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        quickSand: ["var(--font-quicksand)"]
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

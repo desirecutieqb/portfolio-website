@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import { Quicksand } from "next/font/google";
+import Link from "next/link";
+const quickSand = Quicksand({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  weight: '500',
+  display: 'swap',
+  variable: "--font-quicksand"
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,8 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+
+        className={`${quickSand.className} antialiased`}
       >
+        <nav className="text-center">
+          <Link href={'/'} className=" mt-5 text-4xl ">Mykyta Tarakanov</Link>
+        </nav>
         {children}
       </body>
     </html>
