@@ -24,27 +24,34 @@ const ThreeScene: React.FC = () => {
       const height = container.clientHeight;
 
       const scene = new THREE.Scene();
+      scene.background = null;
+
       const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-      const renderer = new THREE.WebGLRenderer({ antialias: true });
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setSize(width, height);
+      renderer.setClearColor(0x000000, 0);
       container.appendChild(renderer.domElement);
 
+      // Dodaj oświetlenie
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
       scene.add(ambientLight);
       const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
       directionalLight.position.set(5, 5, 5);
       scene.add(directionalLight);
 
+      // Utwórz grupę dla modelu
       const modelGroup = new THREE.Group();
       scene.add(modelGroup);
       modelGroupRef.current = modelGroup;
 
+      // Załaduj model
       const loader = new GLTFLoader();
       loader.load(
         '/models/gltf/computer/scene.gltf', 
         (gltf: GLTFResult) => {
           const loadedModel = gltf.scene;
-          loadedModel.position.set(0, 0, 0);
+          loadedModel.position.set(0, -1, 0);
           loadedModel.scale.set(1, 1, 1);
           modelGroup.add(loadedModel);
         },
@@ -54,7 +61,7 @@ const ThreeScene: React.FC = () => {
         }
       );
 
-      camera.position.z = 9;
+      camera.position.z = 7;
 
       const animate = () => {
         requestAnimationFrame(animate);
@@ -77,7 +84,7 @@ const ThreeScene: React.FC = () => {
     }
   }, []);
 
-  return <div ref={containerRef} style={{ width: '100%', height: '100%' }} />;
+  return <div ref={containerRef} style={{ width: '100%', height: '50%', background: 'transparent' }} />;
 };
 
 export default ThreeScene;
