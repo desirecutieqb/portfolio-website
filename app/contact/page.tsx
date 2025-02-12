@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
-import { toast } from "react-toastify";
+import { useState, useRef } from "react";
+import { toast, ToastContainer } from "react-toastify";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import Link from "next/link";
-
+import ReCAPTCHA from "react-google-recaptcha";
 interface UserInput {
   name: string;
   email: string;
@@ -17,6 +17,8 @@ function ContactForm() {
     email: "",
     message: "",
   });
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,22 +30,35 @@ function ContactForm() {
     });
   };
 
+  const handleRecaptchaChange = (token: string | null) => {
+    console.log("Token reCAPTCHA:", token);
+    setRecaptchaToken(token);
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!recaptchaToken) {
+      toast.error("Proszę potwierdź, że nie jesteś robotem.");
+      return;
+    }
 
     const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string;
     const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string;
     const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string;
 
+    const emailParams = {
+      from_name: userInput.name,
+      from_email: userInput.email,
+      message: userInput.message,
+      to_name: "Mykyta", 
+      "g-recaptcha-response": recaptchaToken,
+    };
+
+    console.log("Email parameters:", emailParams);
+
     try {
-      const emailParams = {
-        name: userInput.name,
-        email: userInput.email,
-        message: userInput.message,
-      };
-
       const res = await emailjs.send(serviceID, templateID, emailParams, userID);
-
       if (res.status === 200) {
         toast.success("Message sent successfully!");
         setUserInput({
@@ -51,15 +66,20 @@ function ContactForm() {
           email: "",
           message: "",
         });
+        if (recaptchaRef.current) {
+          recaptchaRef.current.reset();
+        }
+        setRecaptchaToken(null);
       }
     } catch (error) {
-        console.error(error);
+      console.error("Błąd przy wysyłaniu wiadomości:", error);
       toast.error("Failed to send message. Please try again later.");
     }
   };
 
   return (
     <motion.main className="relative">
+      <ToastContainer/>
       <div className="relative top-10 z-30">
         <Link
           href="/"
@@ -106,6 +126,14 @@ function ContactForm() {
               required
               rows={5}
               className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-blue-300"
+            />
+          </div>
+          <div className="mb-4">
+            <ReCAPTCHA
+              className="bg-black"
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
+              onChange={handleRecaptchaChange}
             />
           </div>
           <button
