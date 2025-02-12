@@ -47,16 +47,17 @@ const PortfolioPage: React.FC = () => {
         My recent projects
       </motion.h1>
 
+      {/* Zmieniony kontener projektów */}
       <motion.section
-        className="flex flex-row flex-nowrap justify-center min-w-[1024px] gap-8 z-20"
+        className="flex flex-col md:flex-row justify-center gap-8 z-20"
         variants={itemVariants}
       >
         <motion.div
-          className="flex flex-col items-center w-[500px]"
+          className="flex flex-col items-center w-full md:w-[500px]"
           variants={itemVariants}
         >
           <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
-            <Link href={"https://e-commerce-pet-git-testing-branch-desirecutieqbs-projects.vercel.app"} target="_blank" rel="noopener noreferrer">
+            <Link href="https://e-commerce-pet-git-testing-branch-desirecutieqbs-projects.vercel.app" target="_blank" rel="noopener noreferrer">
               <Image
                 width={500}
                 height={300}
@@ -65,10 +66,9 @@ const PortfolioPage: React.FC = () => {
                 className="rounded-lg shadow-lg"
               />
             </Link>
-
           </motion.div>
           <motion.p
-            className="w-[500px] text-sm text-white mt-2 text-justify"
+            className="w-full text-sm text-white mt-2 text-justify"
             variants={itemVariants}
           >
             Built a quiz application using Next.js and TypeScript, with authentication
@@ -80,6 +80,7 @@ const PortfolioPage: React.FC = () => {
             className="flex flex-wrap gap-2 mt-2"
             variants={itemVariants}
           >
+            {/* Przyciski technologii – bez zmian */}
             <motion.div
               className="flex items-center bg-gray-200 text-black text-xs font-semibold px-2 py-1 rounded-full w-fit cursor-pointer"
               variants={itemVariants}
@@ -169,11 +170,11 @@ const PortfolioPage: React.FC = () => {
         </motion.div>
 
         <motion.section
-          className="flex flex-col items-center w-[500px]"
+          className="flex flex-col items-center w-full md:w-[500px]"
           variants={itemVariants}
         >
           <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
-            <Link href={"https://desirecutieqb-github-io-2gh8-bien9r8un-desirecutieqbs-projects.vercel.app/meals"} target="_blank" rel="noopener noreferrer">
+            <Link href="https://desirecutieqb-github-io-2gh8-bien9r8un-desirecutieqbs-projects.vercel.app/meals" target="_blank" rel="noopener noreferrer">
               <Image
                 width={500}
                 height={500}
@@ -182,10 +183,9 @@ const PortfolioPage: React.FC = () => {
                 className="rounded-lg shadow-lg"
               />
             </Link>
-
           </motion.div>
           <motion.p
-            className="w-[500px] text-sm text-white mt-2 text-justify"
+            className="w-full text-sm text-white mt-2 text-justify"
             variants={itemVariants}
           >
             I developed Foodies, a culinary-themed web application built with Next.js 15 using the new App Router architecture.
@@ -197,6 +197,7 @@ const PortfolioPage: React.FC = () => {
             className="flex flex-wrap gap-2 mt-2"
             variants={itemVariants}
           >
+            {/* Przyciski technologii – analogicznie jak dla pierwszego projektu */}
             <motion.div
               className="flex items-center bg-gray-200 text-black text-xs font-semibold px-2 py-1 rounded-full w-fit cursor-pointer"
               variants={itemVariants}
