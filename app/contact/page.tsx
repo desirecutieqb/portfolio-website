@@ -31,7 +31,6 @@ function ContactForm() {
   };
 
   const handleRecaptchaChange = (token: string | null) => {
-    console.log("Token reCAPTCHA:", token);
     setRecaptchaToken(token);
   };
 
@@ -55,7 +54,6 @@ function ContactForm() {
       "g-recaptcha-response": recaptchaToken,
     };
 
-    console.log("Email parameters:", emailParams);
 
     try {
       const res = await emailjs.send(serviceID, templateID, emailParams, userID);
@@ -72,7 +70,6 @@ function ContactForm() {
         setRecaptchaToken(null);
       }
     } catch (error) {
-      console.error("Błąd przy wysyłaniu wiadomości:", error);
       toast.error("Failed to send message. Please try again later.");
     }
   };
