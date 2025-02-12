@@ -1,14 +1,13 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-
+import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 interface GLTFResult {
   scene: THREE.Group;
   scenes: THREE.Group[];
   animations: THREE.AnimationClip[];
   asset: {
-    version: string;
-    generator: string;
+    version?: string;
+    generator?: string;
   };
   userData?: unknown;
 }
@@ -33,19 +32,16 @@ const ThreeScene: React.FC = () => {
       renderer.setClearColor(0x000000, 0);
       container.appendChild(renderer.domElement);
 
-      // Dodaj oświetlenie
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
       scene.add(ambientLight);
       const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
       directionalLight.position.set(5, 5, 5);
       scene.add(directionalLight);
 
-      // Utwórz grupę dla modelu
       const modelGroup = new THREE.Group();
       scene.add(modelGroup);
       modelGroupRef.current = modelGroup;
 
-      // Załaduj model
       const loader = new GLTFLoader();
       loader.load(
         '/models/gltf/computer/scene.gltf', 
@@ -56,7 +52,7 @@ const ThreeScene: React.FC = () => {
           modelGroup.add(loadedModel);
         },
         undefined,
-        (error: ErrorEvent) => {
+        (error: unknown) => {
           console.error('Wystąpił błąd podczas ładowania modelu:', error);
         }
       );

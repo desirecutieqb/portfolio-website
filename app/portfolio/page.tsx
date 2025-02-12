@@ -47,7 +47,6 @@ const PortfolioPage: React.FC = () => {
         My recent projects
       </motion.h1>
 
-      {/* Zmieniony kontener projektów */}
       <motion.section
         className="flex flex-col md:flex-row justify-center gap-8 z-20"
         variants={itemVariants}
@@ -80,7 +79,6 @@ const PortfolioPage: React.FC = () => {
             className="flex flex-wrap gap-2 mt-2"
             variants={itemVariants}
           >
-            {/* Przyciski technologii – bez zmian */}
             <motion.div
               className="flex items-center bg-gray-200 text-black text-xs font-semibold px-2 py-1 rounded-full w-fit cursor-pointer"
               variants={itemVariants}
@@ -197,7 +195,6 @@ const PortfolioPage: React.FC = () => {
             className="flex flex-wrap gap-2 mt-2"
             variants={itemVariants}
           >
-            {/* Przyciski technologii – analogicznie jak dla pierwszego projektu */}
             <motion.div
               className="flex items-center bg-gray-200 text-black text-xs font-semibold px-2 py-1 rounded-full w-fit cursor-pointer"
               variants={itemVariants}
