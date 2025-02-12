@@ -53,6 +53,7 @@ function ContactForm() {
         });
       }
     } catch (error) {
+        console.error(error);
       toast.error("Failed to send message. Please try again later.");
     }
   };
