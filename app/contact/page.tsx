@@ -70,6 +70,7 @@ function ContactForm() {
         setRecaptchaToken(null);
       }
     } catch (error) {
+      console.error("Błąd przy wysyłaniu wiadomości:", error);
       toast.error("Failed to send message. Please try again later.");
     }
   };
