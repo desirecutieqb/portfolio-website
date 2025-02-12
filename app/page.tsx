@@ -80,7 +80,8 @@ export default function Home() {
           </Link>
         </motion.section>
         <motion.p className="text-lg" whileTap={{ scale: 0.95 }}>
-          Contact
+          <Link href="/contact">Contact</Link>
+
         </motion.p>
         <motion.p className="text-lg" whileTap={{ scale: 0.95 }}>
           <Link href="/portfolio">Portfolio</Link>

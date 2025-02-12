@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tsparticles/all": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "framer-motion": "^12.4.2",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-toastify": "^11.0.3",
+    "resend": "^4.1.2",
     "three": "^0.173.0",
     "tsparticles": "^3.8.1"
   },

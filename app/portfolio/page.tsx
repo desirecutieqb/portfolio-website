@@ -34,7 +34,6 @@ const PortfolioPage: React.FC = () => {
       initial="hidden"
       animate="visible"
     >
-      {/* Nagłówek - link */}
       <motion.div variants={itemVariants}>
         <Link
           href="/"
@@ -44,17 +43,14 @@ const PortfolioPage: React.FC = () => {
         </Link>
       </motion.div>
 
-      {/* Nagłówek strony */}
       <motion.h1 className="text-3xl font-bold mb-6 z-30" variants={itemVariants}>
         My recent projects
       </motion.h1>
 
-      {/* Sekcja z projektami */}
       <motion.section
         className="flex flex-row flex-nowrap justify-center min-w-[1024px] gap-8 z-20"
         variants={itemVariants}
       >
-        {/* Pierwsza kolumna */}
         <motion.div
           className="flex flex-col items-center w-[500px]"
           variants={itemVariants}
@@ -84,7 +80,6 @@ const PortfolioPage: React.FC = () => {
             className="flex flex-wrap gap-2 mt-2"
             variants={itemVariants}
           >
-            {/* Tag Next.js */}
             <motion.div
               className="flex items-center bg-gray-200 text-black text-xs font-semibold px-2 py-1 rounded-full w-fit cursor-pointer"
               variants={itemVariants}
@@ -102,7 +97,6 @@ const PortfolioPage: React.FC = () => {
               </svg>
               <span className="ml-1">Next.js</span>
             </motion.div>
-            {/* Tag TypeScript */}
             <motion.div
               className="flex items-center bg-blue-100 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full w-fit cursor-pointer"
               variants={itemVariants}
@@ -120,7 +114,6 @@ const PortfolioPage: React.FC = () => {
               </svg>
               <span className="ml-1">TypeScript</span>
             </motion.div>
-            {/* Tag Clerk */}
             <motion.div
               className="flex items-center bg-purple-100 text-purple-800 text-xs font-semibold px-2 py-1 rounded-full w-fit cursor-pointer"
               variants={itemVariants}
@@ -138,7 +131,6 @@ const PortfolioPage: React.FC = () => {
               </svg>
               <span className="ml-1">Clerk</span>
             </motion.div>
-            {/* Tag MongoDB */}
             <motion.div
               className="flex items-center bg-green-100 text-black text-xs font-semibold px-2 py-1 rounded-full w-fit cursor-pointer"
               variants={itemVariants}
@@ -156,7 +148,6 @@ const PortfolioPage: React.FC = () => {
               </svg>
               <span className="ml-0.5">MongoDB</span>
             </motion.div>
-            {/* Tag Prisma */}
             <motion.div
               className="flex items-center bg-white text-black text-xs font-semibold px-2 py-1 rounded-full w-fit cursor-pointer"
               variants={itemVariants}
@@ -177,7 +168,6 @@ const PortfolioPage: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* Druga kolumna */}
         <motion.section
           className="flex flex-col items-center w-[500px]"
           variants={itemVariants}
@@ -207,7 +197,6 @@ const PortfolioPage: React.FC = () => {
             className="flex flex-wrap gap-2 mt-2"
             variants={itemVariants}
           >
-            {/* Tag Next.js */}
             <motion.div
               className="flex items-center bg-gray-200 text-black text-xs font-semibold px-2 py-1 rounded-full w-fit cursor-pointer"
               variants={itemVariants}
@@ -225,7 +214,6 @@ const PortfolioPage: React.FC = () => {
               </svg>
               <span className="ml-1">Next.js</span>
             </motion.div>
-            {/* Tag SQLite */}
             <motion.div
               className="flex items-center bg-gray-200 text-black text-xs font-semibold px-2 py-1 rounded-full w-fit cursor-pointer"
               variants={itemVariants}
@@ -264,7 +252,6 @@ const PortfolioPage: React.FC = () => {
         </motion.section>
       </motion.section>
 
-      {/* Stopka */}
       <motion.h1 className="text-4xl mt-8 z-30" variants={itemVariants}>
         Go further, get more...
       </motion.h1>

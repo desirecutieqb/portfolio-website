@@ -67,7 +67,7 @@ const ThreeScene: React.FC = () => {
         requestAnimationFrame(animate);
 
         if (modelGroupRef.current) {
-          modelGroupRef.current.rotation.y += 0.01;
+          modelGroupRef.current.rotation.y += 0.005;
         }
 
         renderer.render(scene, camera);
