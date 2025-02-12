@@ -37,13 +37,13 @@ const PortfolioPage: React.FC = () => {
       <motion.div variants={itemVariants}>
         <Link
           href="/"
-          className="text-5xl mb-5 hover:text-blue-500 transition-colors z-30"
+          className="text-5xl mb-7 text-center hover:text-blue-500 transition-colors z-30"
         >
           Mykyta Tarakanov
         </Link>
       </motion.div>
 
-      <motion.h1 className="text-3xl font-bold mb-6 z-30" variants={itemVariants}>
+      <motion.h1 className="text-3xl text-center font-bold mb-6 z-30" variants={itemVariants}>
         My recent projects
       </motion.h1>
 
