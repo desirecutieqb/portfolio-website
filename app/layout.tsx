@@ -1,7 +1,8 @@
-"use client"
 import "./globals.css";
 import { Quicksand } from "next/font/google";
+import { Metadata } from "next";
 import ParticleComponent from "./components/particles";
+import Footer from "./components/Footer";
 const quickSand = Quicksand({
   subsets: ["latin"],
   weight: '500',
@@ -9,7 +10,13 @@ const quickSand = Quicksand({
   variable: "--font-quicksand"
 })
 
-
+export const metadata: Metadata = {
+  title: {
+    default: "Mykyta Tarakanov",
+    template: "%s - Mykyta Tarakanov",
+  },
+  description: "Check out my work."
+}
 
 export default function RootLayout({
   children,
@@ -24,6 +31,7 @@ export default function RootLayout({
       >
         <ParticleComponent />
         {children}
+        <Footer />
       </body>
     </html>
   );
