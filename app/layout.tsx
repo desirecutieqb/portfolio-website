@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     default: "Mykyta Tarakanov",
     template: "%s - Mykyta Tarakanov",
   },
+  openGraph:{
+    url:"desirecutieqb.com"
+  },
   description: "Check out my work.",
 }
 
