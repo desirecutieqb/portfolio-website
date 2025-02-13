@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s - Mykyta Tarakanov",
   },
   openGraph:{
-    url:"desirecutieqb.com"
+    url:"https://www.desirecutieqb.com"
   },
   description: "Check out my work.",
 }
