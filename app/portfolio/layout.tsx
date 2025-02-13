@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 export const metadata:Metadata = {
-    title: "Portfolio"
+    title: "Portfolio",
+    description: "Have a look at my recent projects."
 }
 export default function RootLayout({
     children,
@@ -8,10 +9,7 @@ export default function RootLayout({
     children: React.ReactNode;
   }>) {
     return (
-      
-        <
-  
-        >
+        <>
           {children}
         </>
     );
