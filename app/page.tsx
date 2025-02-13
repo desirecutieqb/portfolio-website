@@ -71,7 +71,7 @@ export default function Home() {
 
             <svg xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 50 50"
-              width="px"
+              width="50px"
               height="50px"
               fill="currentColor"
               className="text-white hover:text-gray-300 transition-colors">
