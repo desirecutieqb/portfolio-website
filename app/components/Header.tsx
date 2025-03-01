@@ -10,7 +10,7 @@ const Header: React.FC = () => {
             <motion.div variants={itemVariants}>
                 <Link
                     href="/"
-                    className="text-5xl mb-7 text-center hover:text-blue-500 transition-colors z-30"
+                    className="text-5xl mb-7 text-white text-center hover:text-blue-500 transition-colors z-30"
                 >
                     Mykyta Tarakanov
                 </Link>
