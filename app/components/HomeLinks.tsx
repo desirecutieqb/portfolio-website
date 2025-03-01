@@ -21,7 +21,7 @@ const HomeLinks: React.FC = () => {
           zIndex: 30,
         }}
       >
-        <motion.p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2">
+        <motion.p className=" text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2">
           Mykyta Tarakanov
         </motion.p>
         <motion.section className="flex gap-4 mb-4">
@@ -48,7 +48,7 @@ const HomeLinks: React.FC = () => {
           </Link>
         </motion.section>
         <motion.p
-          className="text-lg transition-colors duration-200"
+          className="text-lg transition-colors text-white duration-200"
           whileTap={{ scale: 0.95 }}
           whileHover={{ scale: 1.05, y: -3, color: "#64ffda" }}
           transition={{ duration: 0.2 }}
@@ -56,7 +56,7 @@ const HomeLinks: React.FC = () => {
           <Link href="/contact">Contact</Link>
         </motion.p>
         <motion.p
-          className="text-lg transition-colors duration-200"
+          className="text-lg text-white transition-colors duration-200"
           whileTap={{ scale: 0.95 }}
           whileHover={{ scale: 1.05, y: -3, color: "#64ffda" }}
           transition={{ duration: 0.2 }}
